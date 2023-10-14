@@ -6,26 +6,16 @@ class SqueakyClean {
 
 
         if(identifier.indexOf(' ') >= 0){
-            return replacesBlankSpace(newIdentifier);
+             replacesBlankSpace(newIdentifier);
         }
 
         if(identifier.indexOf('-') >= 0){
-            return convertKebabCaseToCamelCase(newIdentifier);
+             convertKebabCaseToCamelCase(newIdentifier);
         }
 
         convertISOControlChars(newIdentifier);
         removeGreekCharacters(newIdentifier);
         removeCharactersNotLetters(newIdentifier);
-
-        for(int i = newIdentifier.length() - 1; i >= 0; i--){
-
-            char currentChar = newIdentifier.toString().charAt(i);
-
-            if(!Character.isISOControl(currentChar) ){
-                newIdentifier.deleteCharAt(i);
-            }
-            }
-        // Teste 4
 
         return newIdentifier.toString();
     }
@@ -52,7 +42,7 @@ class SqueakyClean {
         for(int i = identifier.length() - 1; i >= 0; i--) {
             char currentChar = identifier.toString().charAt(i);
 
-            if(!Character.isLetter(currentChar)){
+            if(!Character.isLetter(currentChar) && currentChar != '_'){
                 identifier.deleteCharAt(i);
             }
         }
@@ -80,9 +70,12 @@ class SqueakyClean {
         }
     }
     public static boolean isGreekLetter(char c) {
-        Character.UnicodeBlock block = Character.UnicodeBlock.of(c);
 
-        return (block == Character.UnicodeBlock.GREEK || block == Character.UnicodeBlock.GREEK_EXTENDED) ;
+        int codePoint = Character.codePointAt(new char[] { c }, 0);
+        boolean isOmecrom = c != 'Ο' && c != 'o';
+        boolean isGreek = (codePoint >= 0x0391 && codePoint <= 0x03A9) || (codePoint >= 0x03B1 && codePoint <= 0x03C9);
+
+        return  isGreek && isOmecrom ;
     }
 
 
