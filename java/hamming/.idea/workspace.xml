@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca00d9cc-dbd3-40c4-9520-785140f6d060" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../leap/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leap/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +23,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2ZPsDTawjiyhZKlkxrUyPqDsFsO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,7 +37,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/media/fabio/0CBA137E0CBA137E/Documentos/Programação/Exercism/java/hamming",
+    "last_opened_file_path": "/media/fabio/0CBA137E0CBA137E/Documentos/Programação/Exercism/java/gigasecond",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1702334929675</updated>
       <workItem from="1702334930744" duration="708000" />
+      <workItem from="1702425733176" duration="91000" />
     </task>
     <servers />
   </component>
