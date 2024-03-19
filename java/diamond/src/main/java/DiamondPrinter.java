@@ -3,55 +3,41 @@ import java.util.List;
 
 class DiamondPrinter {
 
-    int initialValue;
-    int finalValue;
-
-    int difference;
-
-    List<String> printToList(char a) {
+    List<String> printToList(char character) {
+        int initialValue, finalValue, difference;
         List<String> diamondList = new ArrayList<String>();
-        a = Character.toUpperCase(a);
 
-        if (a == 'A') {
-            diamondList.add(String.valueOf(a));
+
+        if (character == 'A') {
+            diamondList.add(String.valueOf(character));
             return diamondList;
         }
 
-        this.initialValue = (int) 'a';
-        this.finalValue = (int) a;
-        this.difference = this.finalValue - initialValue;
+        initialValue = (int) 'A';
+        finalValue = (int) character;
+        difference = finalValue - initialValue;
 
-        diamondList.add(stringMaker());
-        initialValue++;
+        String outer_spaces = new String(new char[difference]).replace('\0', ' ');
 
-        while (initialValue < finalValue) {
 
-            diamondList.add(stringMaker());
-            initialValue ++;
+        String inner_spaces = " ";
+
+        diamondList.add(outer_spaces + "A" + outer_spaces);
+
+        for(char letter = 'B';  letter != character + 1; letter++) {
+            outer_spaces =  outer_spaces.length() > 1 ?  outer_spaces.substring(0, outer_spaces.length()-1) : "";
+            String row = outer_spaces + letter + inner_spaces + letter + outer_spaces;
+            inner_spaces += "  ";
+            diamondList.add(row);
         }
 
-        finalValue = (int) 'a';
-
-        while (initialValue > finalValue) {
-
-            diamondList.add(stringMaker());
-            initialValue --;
+        for(int index = difference -1;index >= 0; index--) {
+            diamondList.add(diamondList.get(index));
         }
 
-        diamondList.add(stringMaker());
 
         return diamondList;
-    }
 
-    String stringMaker(){
-        StringBuilder diamondString = new StringBuilder();
-        String space = String.valueOf(' ').repeat(this.difference);
-
-        diamondString.append(space);
-        difference--;
-
-
-        return diamondString.toString();
     }
 
 }
