@@ -17,27 +17,39 @@ class Matrix {
         for(int i = 0; i < matrix.size(); i++) {
             int maxRow = Collections.max(matrix.get(i));
             List<Integer> valuesColumn = new ArrayList<Integer>();
-            boolean isFrequency = Collections.frequency(matrix.get(i), maxRow) > 2;
+            Boolean isFrequency = Collections.frequency(matrix.get(i), maxRow) >= 2;
 
             int indexLine = matrix.get(i).indexOf(maxRow);
 
+
             if(isFrequency){
+
                 List<Integer> indexes = getAllIndexes(matrix.get(i), maxRow);
                 if (!indexes.isEmpty()) {
 
                     for(int k = 0; k < indexes.size(); k++) {
                         List<Integer> valuesColumnFrequency = new ArrayList<Integer>();
+                        boolean isColumnOnly = false;
 
                         for (List<Integer> linesMatrix : matrix) {
                             valuesColumnFrequency.add(linesMatrix.get(indexes.get(k)));
                         }
 
-                        if (true) throw new IllegalStateException("Matrix" + matrix.get(i).get(indexes.get(k)));
+                        isColumnOnly = valuesColumnFrequency.size() == 1;
 
-                        if (matrix.get(i).get(indexes.get(k)).equals(Collections.min(valuesColumnFrequency))) {
-                            MatrixCoordinate coordinate = new MatrixCoordinate(i+1, indexLine+1);
+
+                        if(isColumnOnly) {
+                            MatrixCoordinate coordinate = new MatrixCoordinate(i+1,  indexes.get(k) + 1);
                             saddlePoints.add(coordinate);
                         }
+
+
+
+                        if (matrix.get(i).get(indexes.get(k)).equals(Collections.min(valuesColumnFrequency))) {
+                            MatrixCoordinate coordinate = new MatrixCoordinate(i+1,  indexes.get(k) + 1);
+                            saddlePoints.add(coordinate);
+                        }
+
 
                     }
                 }
@@ -56,7 +68,6 @@ class Matrix {
             }
 
         }
-
 
 
         return saddlePoints;
