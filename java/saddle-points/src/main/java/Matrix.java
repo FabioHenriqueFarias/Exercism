@@ -99,14 +99,3 @@ class Matrix {
     }
 
 }
-
-
-
-// Preciso pegar o maior elemento da linha
-// Conferir se é o menor elemento da coluna (True) -> Serve
-//                                          (False) -> Não serve
-
-
-/*
- * Quando eu pego o valor da linha eu tenho o índice dela na coluna, com isso posso percorrer um For para verificar nas outras linhas das colunas e verificar se ela é a menor, se sim Crio o MatrixXoordinate, se não passo para proxima linha
- * */
