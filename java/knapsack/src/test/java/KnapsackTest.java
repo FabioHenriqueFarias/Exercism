@@ -22,17 +22,7 @@ public class KnapsackTest {
         assertThat(knapsack.maximumValue(100, items)).isEqualTo(0);
     }
 
-    @Disabled("Remove to run test")
-    @Test
-    public void testOneItemTooHeavy() {
-        List<Item> items = List.of(
-            new Item(100, 1)
-        );
 
-        assertThat(knapsack.maximumValue(10, items)).isEqualTo(0);
-    }
-
-    @Disabled("Remove to run test")
     @Test
     public void testFiveItemsCannotBeGreedyByWeight() {
         List<Item> items = List.of(
